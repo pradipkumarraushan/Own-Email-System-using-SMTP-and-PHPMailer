@@ -16,7 +16,7 @@ if ( $email =="" || $subject =="" || $name =="" ||  $message =="")
   }
   else
   {
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 $mail = new PHPMailer\PHPMailer\PHPMailer;
 //Enable SMTP debug mode
 $mail->SMTPDebug = 0;
