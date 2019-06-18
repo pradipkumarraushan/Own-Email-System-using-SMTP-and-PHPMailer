@@ -83,12 +83,12 @@ $mail->isHTML(true);
 
 $mail->Subject =" ".$_POST['subject']." ";
 $body = "<html>
-           <head>
+           <head> </head>
                 <body> ".$_POST['message']." <br> 
 
 
                  </body>
-            </head></html>";
+            </html>";
 $body .= '......<br>
 <table id="zs-output-sig" style="font-family: Arial,Helvetica,sans-serif; line-height: 0px; font-size: 1px; padding: 0px; border-spacing: 0px; margin: 0px; border-collapse: collapse; width: 550px;" border="0" cellspacing="0" cellpadding="0">
 <tbody>
