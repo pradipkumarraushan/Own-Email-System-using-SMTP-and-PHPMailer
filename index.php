@@ -71,13 +71,13 @@ echo '</script>';
 	    <tbody>
       <tr>
         <td>User Name</td>
-        <td><input type="email" name="email" placeholder="Enter Email Id" class="form-control"></td>
+        <td><input type="email" name="email" placeholder="Enter Email Id" class="form-control" required="true"></td>
         
       </tr>
 
       <tr>
         <td>Password</td>
-        <td><input type="Password" name="password" placeholder="Password" class="form-control"></td>
+        <td><input type="Password" name="password" placeholder="Password" class="form-control" required="true"></td>
       </tr>
 
 
