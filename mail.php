@@ -254,13 +254,13 @@ $mail->MsgHTML($body);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="ckeditor_4.8.0_full/ckeditor/ckeditor.js"></script>
  </head>
-<body>
-<section id="cover">
-    <div id="cover-caption">
-    	
-    	 <h1 style="color: white">Compose Email</h1>
-    	 <?php if(!empty($success_message)) { ?>
+<body onLoad="setInterval('tt()',1000)">
+
+      
+       <h1 style="color: black" class="text-center">Compose Email</h1>
+       <?php if(!empty($success_message)) { ?>
                 <?php echo '<script language="javascript">';
 echo 'alert("'.$success_message.'")';
 echo '</script>'; ?>
@@ -274,9 +274,16 @@ echo '</script>';
                   ?>
                 <?php } ?>
 <table class="table table-dark table-striped col-sm-6 offset-sm-3 text-center " >
-	<form method="post" enctype="multipart/form-data" class="form-inlin justify-content-center form-group">
+  <form method="post" enctype="multipart/form-data" class="form-inlin justify-content-center form-group">
 
-	    <tbody>
+      <tbody>
+      <tr>
+        <td>Time / Date</td>
+        <td><span class="btn btn-info" style="color:white" id="tar"></span></td>
+        
+      </tr>
+
+
       <tr>
         <td>To</td>
         <td><input type="email" name="email" placeholder="Enter Recipient Email Id" class="form-control"></td>
@@ -289,32 +296,36 @@ echo '</script>';
       </tr>
 
       <tr>
-      	<td>Your Name</td>
-      	<td><input type="text" name="name" placeholder="Your Name" class="form-control"></td>
+        <td>Your Name</td>
+        <td><input type="text" name="name" placeholder="Your Name" class="form-control"></td>
       </tr>
 
 
       <tr>
-      	<td>Message</td>
-      	<td><textarea name="message" placeholder="Write Your Message Here" class="form-control" rows="5"></textarea></td>
+        <td>Message</td>
+        <td>
+
+               
+          <textarea name="message" id="text" placeholder="Write Your Message Here" class="form-control" ></textarea>
+          <script>CKEDITOR.replace( 'text' );</script>
+        </td>
       </tr>
 
       <tr>
-      	<td>Attachment</td>
-      	<td><input type="file" name="file[]"  id="img" class="form-control" multiple="multiple" onchange="validateImage()"></td>
+        <td>Attachment</td>
+        <td><input type="file" name="file[]"  id="img" class="form-control" multiple="multiple" onchange="validateImage()"></td>
       </tr>
 
       <tr>
-      	<td><a href="logout.php"><input type="button" value="Log-out" class="btn-danger"></a></td>
+        <td><a href="logout.php"><input type="button" value="Sign out" class="btn-danger"></a></td>
 
-      	<td><input type="submit" value="Send Mail" name="submit" class="btn-success"></td>
+        <td><input type="submit" value="Send Mail" name="submit" class="btn-success"></td>
       </tr>
 
     </tbody>
-	</form>
+  </form>
 </table>
-</div>
-</section>
+
 <script type="text/javascript">
 function validateImage() {
     var formData = new FormData();
@@ -328,13 +339,22 @@ function validateImage() {
         document.getElementById("img").value = '';
         return false;
     }
-    if (file.size > 1024000) {
-        alert('Max Upload size is 1MB only');
+    if (file.size > 5242880) {
+        alert('Max Upload size is 5MB only');
         document.getElementById("img").value = '';
         return false;
     }
     return true;
 }
+
+
+   function tt()
+  {
+   var d=new Date();
+   var t=d.getHours()+":"+ d.getMinutes()+":"+ d.getSeconds()+" / "+ d.toDateString() ;
+   document.getElementById("tar").innerHTML=t;  
+  }
+
 </script>
 <style>
 html,
