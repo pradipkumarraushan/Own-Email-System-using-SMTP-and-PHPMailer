@@ -8,3 +8,14 @@
 4.Login through index.php.
 
 5.Send mail through mail.php after login.
+
+Login Page:
+
+![Image of Login Page](https://github.com/pradipkumarraushan/Own-Email-System-using-SMTP-and-PHPMailer/blob/master/Login.JPG)
+
+Mail Page:
+
+![Image of Mail Page](https://github.com/pradipkumarraushan/Own-Email-System-using-SMTP-and-PHPMailer/blob/master/Mail.jpg)
+
+
+
