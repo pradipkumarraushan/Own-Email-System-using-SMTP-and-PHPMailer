@@ -1,3 +1,3 @@
 <?php
-$conn=mysqli_connect("hostname","username","password","database_name");
+$conn=mysqli_connect("localhost","root","","mail");
 ?>
