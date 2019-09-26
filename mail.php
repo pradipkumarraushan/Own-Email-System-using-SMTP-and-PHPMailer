@@ -32,9 +32,19 @@ $mail->Password = "password";
 $mail->SMTPSecure = "ssl";
 $mail->Port = 465;// Enter  port number 
 
-$mail->From = "your own domain email id";
+$mail->ClearReplyTos();
+$mail->addReplyTo("your own domain email id", $_POST['name']);
 
+$mail->SetFrom("your own domain email id", $_POST['name']);
+/*  
+$mail->From = "your own domain email id";
 $mail->FromName =  " ".$_POST['name']." ";
+
+
+======> instead of two lines i Used one line  =>>>> $mail->SetFrom("your own domain email id", $_POST['name']); 
+*/
+
+
 
 $mail->addAddress($_POST["email"]); 
 
